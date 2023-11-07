@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const getAllMeals = (setMeal) => {
-    axios.get(`https://meal-planner-xota.onrender.com`)
+    axios.get(`https://meal-0jot.onrender.com`)
     .then(({data}) => {console.log(data);
         setMeal(data);
     })
 }
 const addMeal = (title,setTitle,setMeal) => {
-    axios.post(`https://meal-planner-xota.onrender.com`,{title})
+    axios.post(`https://meal-0jot.onrender.com/saveMeals`,{title})
     .then((data) => {
         console.log(data);
         setTitle("");
@@ -15,7 +15,7 @@ const addMeal = (title,setTitle,setMeal) => {
     })
 }
 const editMeal = (mealId,title,setTitle,setMeal,setEditing) => {
-    axios.post(`https://meal-planner-xota.onrender.com`,{_id:mealId,title})
+    axios.post(`https://meal-0jot.onrender.com/editMeal`,{_id:mealId,title})
     .then ((data) => {
         console.log(data)
         setTitle("")
@@ -26,7 +26,7 @@ const editMeal = (mealId,title,setTitle,setMeal,setEditing) => {
 }
 
 const deleteMeal = (_id,setMeal) => {
-    axios.post(`https://meal-planner-xota.onrender.com`,{_id})
+    axios.post(`https://meal-0jot.onrender.com/deleteMeal`,{_id})
     .then((data) => {
         console.log(data)
         getAllMeals(setMeal)
